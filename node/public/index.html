@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>아이동네</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      const checkboxes = document.querySelectorAll(".custom-checkbox input");
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const label = this.nextElementSibling;
+          if (this.checked) {
+            label.style.backgroundColor = "#2196F3";
+            label.style.color = "white";
+          } else {
+            label.style.backgroundColor = "#f1f1f1";
+            label.style.color = "inherit";
+          }
+        });
+      });
+
+      window.onload = function () {
+        fetchData("http://192.168.1.81:3000/getapidata");
+        fetchData("http://192.168.1.81:3000/gettotal");
+        const form = document.getElementById("search-form");
+        const iframe = document.querySelector("iframe");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // 기본 form 제출 동작 방지
+
+          const formData = new FormData(form);
+          const params = new URLSearchParams(formData).toString();
+          const url = `http://192.168.1.81:8000/search?${params}`;
+
+          iframe.src = url;
+        });
+      };
+
+      async function fetchData(url) {
+        let response = await fetch(url);
+        console.log(response.status);
+        console.log(response.statusText);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <h1 class="logo">
+          <a href="index.html"><img src="logo.png" alt="아이동네 로고" /></a>
+          <a href="top10.html"><span>종합 순위 보기</span></a>
+          <a href="category.html"><span>지수별 순위 보기</span></a>
+        </h1>
+      </header>
+      <section id="container">
+        <!-- 비주얼 섹션 -->
+        <div>
+          <h2 class="title">
+            <span class="highlight">아이&nbsp;</span>
+            <span>키우기 좋은 최적의&nbsp;</span>
+            <span class="highlight">동네</span>
+            <span>를 찾아보세요!</span>
+          </h2>
+          <!-- 시,도 구,군 서치 박스 -->
+          <div>
+            <form id="search-form" action="./search" method="get">
+              <div class="cont-select">
+                <select id="city-select" class="btn-select" name="city">
+                  <option value="">시·도 선택</option>
+                  <option value="전체">전체</option>
+                  <option value="서울특별시">서울특별시</option>
+                  <option value="부산광역시">부산광역시</option>
+                  <option value="대구광역시">대구광역시</option>
+                  <option value="인천광역시">인천광역시</option>
+                  <option value="광주광역시">광주광역시</option>
+                  <option value="대전광역시">대전광역시</option>
+                  <option value="울산광역시">울산광역시</option>
+                  <option value="세종특별자치시">세종특별자치시</option>
+                  <option value="경기도">경기도</option>
+                  <option value="강원특별자치도">강원특별자치도</option>
+                  <option value="충청북도">충청북도</option>
+                  <option value="충청남도">충청남도</option>
+                  <option value="전라북도">전라북도</option>
+                  <option value="전라남도">전라남도</option>
+                  <option value="경상북도">경상북도</option>
+                  <option value="경상남도">경상남도</option>
+                  <option value="제주특별자치도">제주특별자치도</option>
+                </select>
+                <button type="submit">
+                  <img
+                    src="./search-box.png"
+                    alt="검색하려면 클릭하세요"
+                    id="search"
+                    width="42px"
+                    height="auto"
+                  />
+                </button>
+              </div>
+              <div class="checkbox">
+                <p style="color: darkgreen; font-size: 13px">
+                  상세 분석을 원한다면 아래의 지표를 선택해주세요.
+                </p>
+                <div>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" name="options" value="1" />
+                    <span class="checkbox-label">교육</span>
+                  </label>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" name="options" value="2" />
+                    <span class="checkbox-label">안전</span>
+                  </label>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" name="options" value="3" />
+                    <span class="checkbox-label">의료</span>
+                  </label>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" name="options" value="4" />
+                    <span class="checkbox-label">환경</span>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <div style="margin: 0 auto">
+        <iframe class="scrollbar" src="" name="myiframe"></iframe>
+      </div>
+    </div>
+  </body>
+</html>

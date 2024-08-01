@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>아이동네</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <h1 class="logo">
+          <a href="index.html"><img src="logo.png" alt="아이동네 로고" /></a>
+          <a href="top10.html"><span>종합 순위 보기</span></a>
+          <a href="category.html" class="active"
+            ><span>지수별 순위 보기</span></a
+          >
+        </h1>
+      </header>
+      <section id="container">
+        <div>
+          <h1 class="title_top">교육 순위</h1>
+        </div>
+        <div>
+          <img
+            class="graph"
+            id="medtop-graph"
+            src="http://localhost:3000/select/categorytop3/graphs/edu"
+            alt="Edu Top3 Graph"
+          />
+        </div>
+      </section>
+      <div style="margin: 0 auto">
+        <iframe
+          style="height: 300px"
+          scrolling="no"
+          src="http://192.168.1.81:8000/select/categorytop3/edu"
+        ></iframe>
+      </div>
+      <section id="container">
+        <div>
+          <h1 class="title_top">안전 순위</h1>
+        </div>
+        <div>
+          <img
+            class="graph"
+            id="medtop-graph"
+            src="http://localhost:3000/select/categorytop3/graphs/saf"
+            alt="Saf Top3 Graph"
+          />
+        </div>
+      </section>
+      <div style="margin: 0 auto">
+        <iframe
+          style="height: 300px"
+          scrolling="no"
+          src="http://192.168.1.81:8000/select/categorytop3/saf"
+        ></iframe>
+      </div>
+      <section id="container">
+        <div>
+          <h1 class="title_top">의료 순위</h1>
+        </div>
+        <div>
+          <img
+            class="graph"
+            id="medtop-graph"
+            src="http://localhost:3000/select/categorytop3/graphs/med"
+            alt="Med Top3 Graph"
+          />
+        </div>
+      </section>
+      <div style="margin: 0 auto">
+        <iframe
+          style="height: 300px"
+          scrolling="no"
+          src="http://192.168.1.81:8000/select/categorytop3/med"
+        ></iframe>
+      </div>
+      <section id="container">
+        <div>
+          <h1 class="title_top">환경 순위</h1>
+        </div>
+        <div>
+          <img
+            class="graph"
+            id="medtop-graph"
+            src="http://localhost:3000/select/categorytop3/graphs/env"
+            alt="Env Top3 Graph"
+          />
+        </div>
+      </section>
+      <div style="margin: 0 auto">
+        <iframe
+          style="height: 300px"
+          scrolling="no"
+          src="http://192.168.1.81:8000/select/categorytop3/env"
+        ></iframe>
+      </div>
+    </div>
+  </body>
+</html>

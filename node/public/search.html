@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>아이동네</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <h1 class="logo">
+          <a href="index.html"><img src="logo.png" alt="아이동네 로고" /></a>
+          <a href="top10.html"><span>종합 순위 보기</span></a>
+          <a href="category.html"><span>지수별 순위 보기</span></a>
+        </h1>
+      </header>
+      <section id="container">
+        <div>
+          <form id="search-form" action="/search" method="get">
+            <input type="hidden" name="addr" id="addr-input" />
+            <input type="hidden" name="options" id="options-input" />
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
