@@ -31,8 +31,8 @@
 - Front: HTML, css, JavaScript
 - Back: Node.js, FastAPI
 - db: MongoDB
-- 데이터 수집 및 정리: Python, 공공데이터포 OPEN API
-- 디자인: Figma
+- 데이터 수집 및 정리: Python, 공공데이터포탈 OPEN API
+- 디자인: Figma 
 
 <br>
 
